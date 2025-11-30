@@ -1,5 +1,6 @@
 body{
-   
+   display:flex;
+   flex-direction: column;
 }
 #container{
     flex-wrap: wrap;
@@ -9,7 +10,11 @@ body{
     margin: 0 auto;
     border:2px solid black;
 }
-
-div{
-    
+#buttons{  
+display:flex;
+justify-content: center;
+margin:10px;
+}
+button{
+    margin:10px;
 }

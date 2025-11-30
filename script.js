@@ -17,6 +17,20 @@ for(let i=0;i<num*num;i++){
     let blue=Math.random()*256;
     div.addEventListener("mouseenter", (e)=>{ e.target.style.backgroundColor =`rgba(${red}, ${green}, ${blue}, 1)`})
  }
+
+ const pg=document.querySelector("#pg");
+ pg.addEventListener("click",fn3);
+ function fn3(){
+    div.addEventListener("mouseenter", (e) => {
+    let dark = Number(e.target.dataset.dark) || 0; // start at 0
+    dark += 0.1;                                   // darken a bit more
+    if (dark > 1) dark = 1;                        // max = 1
+    e.target.dataset.dark = dark;                  // save it
+    e.target.style.backgroundColor = `rgba(0, 0, 0, ${dark})`;
+});
+
+ }
+
  }
 
 }
@@ -34,6 +48,12 @@ for(let i=0;i<num*num;i++){
  sqrs.addEventListener("click",fn);
  function fn(e){
     let num = prompt("Enter value from 1 to 100");
+    if (num>100){
+        num=100;
+    }
+    if(num<1){
+        num=1;
+    }
     createNew(num);
  }
 

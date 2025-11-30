@@ -1,15 +1,32 @@
 const container=document.querySelector("#container")
-console.log(1)
- for(let i=0;i<256;i++){
+createDiv(16);
+function createDiv(num){
+for(let i=0;i<num*num;i++){
  const div=document.createElement("div")
  div.addEventListener("mouseenter", (e)=>{ e.target.style.backgroundColor ='black'})
  container.appendChild(div)
- div.style.width="40px";
- div.style.height="40px";
+ div.style.width=`${640/num}px`;
+ div.style.height=`${640/num}px`;
  
- div.textContent=i+1;
+ div.classList.add("child");
  }
 
- div.addEventListener("mouseenter",)
+}
+ 
+ function createNew(num){
+    const childDiv=document.querySelectorAll(".child");
+    childDiv.forEach(function(element){element.remove()})
+    createDiv(num);
+ }
+
+
+
+ const sqrs=document.querySelector("#sqrs");
+ sqrs.addEventListener("click",fn);
+ function fn(e){
+    let num = prompt("Enter value from 1 to 100");
+    createNew(num);
+ }
+
 
 
